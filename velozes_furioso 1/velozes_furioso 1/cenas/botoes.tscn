@@ -1,0 +1,28 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbvf4sebtuiex"]
+
+[ext_resource type="Texture2D" uid="uid://bwavigwkbq51x" path="res://icon.svg" id="1_p4487"]
+[ext_resource type="Script" path="res://script/botoes.gd" id="1_rrmce"]
+[ext_resource type="Texture2D" uid="uid://cilurgxsjnw0h" path="res://imagens/seta cima.png" id="2_w0ecq"]
+[ext_resource type="Texture2D" uid="uid://dgdbbhn4rh8wn" path="res://imagens/seta_baixo.png" id="3_uf37w"]
+[ext_resource type="Texture2D" uid="uid://hk5v5asie6w0" path="res://imagens/seta_esquerda.png" id="4_h4oje"]
+[ext_resource type="Texture2D" uid="uid://k8oim8v03ckp" path="res://imagens/seta direita.png" id="5_rgb1v"]
+[ext_resource type="Texture2D" uid="uid://42mhw3ct3x8n" path="res://imagens/w.png" id="6_81uh5"]
+[ext_resource type="Texture2D" uid="uid://dr276xd4fg526" path="res://imagens/s.png" id="7_2hh58"]
+[ext_resource type="Texture2D" uid="uid://csma62uaj0miw" path="res://imagens/a.png" id="8_gngh0"]
+[ext_resource type="Texture2D" uid="uid://dceh15cud8nqx" path="res://imagens/d.png" id="9_xn53d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8l6j"]
+size = Vector2(125, 119)
+
+[node name="botao" type="StaticBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_rrmce")
+textura_p1 = Array[Texture]([ExtResource("2_w0ecq"), ExtResource("3_uf37w"), ExtResource("4_h4oje"), ExtResource("5_rgb1v")])
+textura_p2 = Array[Texture]([ExtResource("6_81uh5"), ExtResource("7_2hh58"), ExtResource("9_xn53d"), ExtResource("8_gngh0")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_p4487")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_y8l6j")

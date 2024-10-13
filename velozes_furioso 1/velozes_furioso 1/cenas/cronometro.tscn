@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bikdyjsqkwbxj"]
+
+[ext_resource type="Script" path="res://script/cronometro.gd" id="1_ckobq"]
+[ext_resource type="Texture2D" uid="uid://bg0yixxdrfly5" path="res://imagens/3.png" id="2_dpmmm"]
+[ext_resource type="Texture2D" uid="uid://c6oqwvc8n2te8" path="res://imagens/2.png" id="3_nkuch"]
+[ext_resource type="Texture2D" uid="uid://bddf50y8osi4n" path="res://imagens/1.png" id="4_jkgcp"]
+[ext_resource type="Texture2D" uid="uid://fqssvkdf8otq" path="res://imagens/start.png" id="5_4l8ag"]
+
+[node name="cronometro" type="StaticBody2D"]
+position = Vector2(202, 128)
+script = ExtResource("1_ckobq")
+teste = Array[Texture]([ExtResource("2_dpmmm"), ExtResource("3_nkuch"), ExtResource("4_jkgcp"), ExtResource("5_4l8ag")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dpmmm")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

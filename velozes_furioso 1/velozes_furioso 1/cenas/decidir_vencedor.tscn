@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://x8obstoqgdil"]
+
+[ext_resource type="Script" path="res://script/vencedor_2d.gd" id="1_6lhgs"]
+[ext_resource type="Texture2D" uid="uid://bj60b8kxjvjl7" path="res://imagens/vitoriaVermelho.png" id="2_nc0na"]
+[ext_resource type="Texture2D" uid="uid://datkuvlgad1wm" path="res://imagens/vitoria_verde.png" id="3_ot2ra"]
+
+[node name="decidir_vencedor" type="StaticBody2D"]
+position = Vector2(500, 268)
+script = ExtResource("1_6lhgs")
+vencedor = Array[Texture]([ExtResource("2_nc0na"), ExtResource("3_ot2ra")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.385, 3.385)
+texture = ExtResource("2_nc0na")

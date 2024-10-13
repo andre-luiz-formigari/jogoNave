@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://4mqq8nxd3tyg"]
+
+[ext_resource type="PackedScene" uid="uid://38vy8rqfypsc" path="res://cenas/carros.tscn" id="1_1a5gi"]
+[ext_resource type="Texture2D" uid="uid://dum7mprmub86s" path="res://imagens/linha.png" id="2_bcakl"]
+[ext_resource type="PackedScene" uid="uid://dbvf4sebtuiex" path="res://cenas/botoes.tscn" id="4_04d18"]
+[ext_resource type="PackedScene" uid="uid://bikdyjsqkwbxj" path="res://cenas/cronometro.tscn" id="5_auhrq"]
+[ext_resource type="PackedScene" uid="uid://pxly2r2cfbui" path="res://cenas/chegada.tscn" id="5_vah8s"]
+[ext_resource type="PackedScene" uid="uid://x8obstoqgdil" path="res://cenas/decidir_vencedor.tscn" id="6_paa0j"]
+[ext_resource type="Texture2D" uid="uid://cvsotu02a8uas" path="res://imagens/estrada.png" id="7_g4tr0"]
+
+[node name="World" type="Node2D"]
+
+[node name="carro-verde" parent="." instance=ExtResource("1_1a5gi")]
+indentificar_carro = 1
+
+[node name="carro-vermelho" parent="." instance=ExtResource("1_1a5gi")]
+
+[node name="linha" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="linha"]
+position = Vector2(453, 426)
+scale = Vector2(11.18, 1)
+texture = ExtResource("2_bcakl")
+
+[node name="botaão_player1" parent="." instance=ExtResource("4_04d18")]
+"indentificar_botão" = 1
+
+[node name="botão_player2" parent="." instance=ExtResource("4_04d18")]
+"indentificar_botão" = 2
+
+[node name="cronometro" parent="." instance=ExtResource("5_auhrq")]
+position = Vector2(515, 378)
+scale = Vector2(8.51, 8.51)
+
+[node name="chegada" parent="." instance=ExtResource("5_vah8s")]
+position = Vector2(1214, 241)
+scale = Vector2(5, 5)
+
+[node name="vencedor" parent="." instance=ExtResource("6_paa0j")]
+
+[node name="Estrada" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(545.875, 276)
+scale = Vector2(11.1225, 9)
+texture = ExtResource("7_g4tr0")
+
+[node name="Estrada2" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(543, 401)
+scale = Vector2(11.19, 8.212)
+texture = ExtResource("7_g4tr0")
+
+[connection signal="body_shape_entered" from="chegada" to="carro-verde" method="_on_chegada_body_shape_entered"]

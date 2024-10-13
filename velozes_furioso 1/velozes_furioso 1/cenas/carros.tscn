@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://38vy8rqfypsc"]
+
+[ext_resource type="Script" path="res://script/carros.gd" id="1_47kkf"]
+[ext_resource type="Texture2D" uid="uid://bwavigwkbq51x" path="res://icon.svg" id="1_xbhe6"]
+[ext_resource type="Texture2D" uid="uid://dgbp15l4u7p1c" path="res://imagens/carro_verde.png" id="2_bq2nr"]
+[ext_resource type="Texture2D" uid="uid://c7oe0yiy5cahd" path="res://imagens/carro_vermelho.png" id="3_i82xh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gr2c"]
+size = Vector2(128, 120)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_47kkf")
+textura = Array[Texture]([ExtResource("2_bq2nr"), ExtResource("3_i82xh")])
+indentificar_carro = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_xbhe6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_6gr2c")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="reduzir_velocidade" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="reduzir_velocidade" to="." method="_on_reduzir_velocidade_timeout"]

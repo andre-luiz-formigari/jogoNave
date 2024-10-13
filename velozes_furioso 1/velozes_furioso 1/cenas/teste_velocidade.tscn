@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf61wetqo2fxk"]
+
+[ext_resource type="Script" path="res://script/teste_velocidade.gd" id="1_sux4n"]
+[ext_resource type="Texture2D" uid="uid://c7oe0yiy5cahd" path="res://imagens/carro_vermelho.png" id="2_bqmpj"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_sux4n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(41, 59)
+scale = Vector2(0.99, 1)
+texture = ExtResource("2_bqmpj")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

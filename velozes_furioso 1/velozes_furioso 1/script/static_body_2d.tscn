@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://mq2c00w6luxc"]
+
+[ext_resource type="Script" path="res://vencedor.gd" id="1_rju88"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_rju88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
